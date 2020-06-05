@@ -1,0 +1,634 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Oswald", sans-serif;
+}
+
+/* Navbar */
+nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  background-color: #003994;
+  color: rgb(240, 246, 255);
+  z-index: 10;
+}
+
+ul {
+  margin-bottom: 0;
+}
+
+nav ul {
+  display: flex;
+  width: 40%;
+  list-style: none;
+  justify-content: space-between;
+}
+
+nav ul li a {
+  color: #b6d2ff;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: rgb(240, 246, 255);
+  text-decoration: none;
+}
+
+/* Humbergur Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 20px;
+  position: relative;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  opacity: 0;
+  left: -8px;
+  top: -3px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 23px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #e3ebfa;
+  transition: all 0.5s;
+}
+
+/* Humbergur Animation */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  background-color: rgb(240, 246, 255);
+  transform: rotate(45deg) translate(-1px, 0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+  background-color: rgb(240, 246, 255);
+  transform: rotate(-45deg) translate(-2px, 0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* Carousel */
+
+.carousel-item {
+  color: #f7f7ff;
+  background-image: url('../img/bg-banner.jpg');
+  background-color: #386fc9;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: -5;
+}
+
+.carousel-item h1 {
+  position: absolute;
+  font-size: 40px;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  animation-name: hanim;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes hanim {
+  from {
+    top: 0;
+    left: 50%;
+  }
+  to {
+    top: 45%;
+    left: 50%;
+  }
+}
+
+.carousel-item p {
+  position: absolute;
+  width: 50%;
+  font-size: 18px;
+  font-weight: 400;
+  top: 60%;
+  left: -100%;
+  animation-name: panim;
+  animation-duration: 1s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes panim {
+  from {
+    top: 60%;
+    left: 0;
+  }
+  to {
+    top: 60%;
+    left: 50%;
+  }
+}
+
+.btn {
+  width: 150px;
+  height: 40px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  border-radius: 30px;
+  border-style: hidden;
+  background-color: #3672d1;
+  color: rgb(240, 246, 255);
+  cursor: pointer;
+}
+
+.carousel-item .btn {
+  position: relative;
+  top: 20%;  
+  box-shadow: 0px 5px #255db6;
+  animation-name: btnanim;
+  animation-duration: 0.5s;
+  animation-delay: 3.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes btnanim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.carousel-item .btn:hover {
+  background-color: #3361A9;
+  box-shadow: 0px 5px rgb(35, 79, 148);
+}
+
+.carousel-item .btn:active {
+  box-shadow: none;
+  position: relative;
+  top: 21%;
+  box-shadow: none;
+}
+/* card service  */
+.card-container {
+  width: 100%;
+  height: 100%;
+}
+.card-section-title {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 30px 0 30px 0;
+}
+
+.card-section-title h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #3a3a3a;
+}
+
+.card-section-title p {
+  color: #3a3a3a;
+}
+
+.card-content {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.card-item {
+  width: 250px;
+  height: 300px;
+  margin: 10px;
+  color: #3a3a3a;
+  text-align: center;
+  border-radius: 6px;
+  transition: box-shadow 0.5s;
+  border: 1px solid #eee;
+  box-shadow: 0px 0px 5px 0px rgba(168, 157, 157, 0.31);
+}
+.card-description {
+  padding: 10px;
+  text-align: center;
+  color: rgb(80, 80, 80);
+}
+
+.card-caption .btn {
+  margin-top: 10px;
+}
+
+.card-caption .btn:hover {
+  background-color: #2462c5;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-item:hover {
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Team content */
+.team-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 20px;
+}
+
+.team-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.team-title h2 {
+  font-size: 36px;
+  color: #3a3a3a;
+}
+
+.team-title p {
+  width: 50%;
+  color: #3a3a3a;
+}
+
+.team-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+
+.team-pic img {
+  width: 250px;
+  height: 300px;
+  border-radius: 6px 6px 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.team-caption {
+  width: 250px;
+  height: 150px;
+  margin-bottom: 50px;
+  transition: box-shadow 0.5s;
+  box-shadow: 0px 0px 5px 0px rgba(168, 157, 157, 0.31);
+  border-radius: 4px;
+  text-align: center;
+  border: 1px solid #eee;
+}
+
+.team-caption:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.team-name {
+  padding: 15px 0;
+}
+
+.team-caption {
+  line-height: 20px;
+  color: #3a3a3a;
+}
+
+/* We are creative digital*/
+.section-one {
+  background-color: #3361a9;
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-title {
+  font-size: 36px;
+  padding-bottom: 10px;
+  color: rgb(240, 246, 255);
+}
+
+.section-description {
+  width: 50%;
+  font-size: 16px;
+  color: rgb(193, 216, 255);
+}
+
+.section-one .btn {
+  margin: 20px 0;
+  background-color: transparent;
+  border: 2px solid rgb(240, 246, 255);
+  color: rgb(240, 246, 255);
+  transition: all 0.5s;
+}
+
+.section-one .btn:hover {
+  margin: 20px 0;
+  background-color: rgb(240, 246, 255);
+  color: #386fc9;
+}
+/* End We are creative digital*/
+
+/* Footer */
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #003994;
+  height: 200px;
+}
+
+.copy-right {
+  opacity: 0.5;
+  font-size: 14px;
+  padding-top: 10px;
+  color: rgb(193, 216, 255);
+}
+/* End Footer */
+
+/* Responsive Breakpoint */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .menu-toggle {
+    display: flex;
+    z-index: 2;
+  }
+
+  nav ul {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    background-color: #003994;
+    z-index: 1;
+    transform: translateX(100%);
+    transition: all 0.5s;
+    opacity: 0;
+  }
+
+  nav ul.slide {
+    opacity: 1;
+    transform: translate(0);
+  }
+
+  .carousel-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel-item h1 {
+    position: absolute;
+    width: 100%;
+    font-size: 28px;
+    /* top: 0;
+    left: 0;
+    animation: hanim;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards; */
+    transform: translate(-50%, -50%);
+  }
+
+  /* @keyframes hanim {
+    from {
+      top: 0;
+      left: 50%;
+    }
+    to {
+      top: 20%;
+      left: 50%;
+    }
+  } */
+
+  .carousel-item p {
+    position: absolute;
+    font-size: 16px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    /* animation-name: panim;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards; */
+    transform: translate(-50%, -50%);
+  }
+
+  /* @keyframes panim {
+    from {
+      top: 30%;
+      left: 0;
+    }
+    to {
+      top: 30%;
+      left: 50%;
+    }
+  } */
+
+  .carousel-item .btn {
+    width: 50%;
+  }
+
+  .section-description {
+    text-align: center;
+    width: 90%;
+  }
+
+  .team-title h2 {
+    font-size: 24px;
+  }
+
+  .section-title h2 {
+    font-size: 24px;
+  }
+
+  .card-section-title h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .card-section-title p {
+    font-size: 16px;
+  }
+
+  .section-one .btn {
+    margin: 10px 0;
+    width: 80%;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid rgb(240, 246, 255);
+    color: rgb(240, 246, 255);
+    transition: all 0.5s;
+  }
+
+  .section-one .btn:hover {
+    margin: 10px 0;
+    background-color: rgb(240, 246, 255);
+    color: #386fc9;
+  }
+
+  .team-name {
+    font-size: 16px;
+  }
+
+  .team-caption h3 {
+    font-size: 20px;
+  }
+
+  .team-caption p {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  nav ul {
+    width: 50%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .carousel-item h1 {
+    position: absolute;
+    font-size: 28px;
+    top: 0;
+    left: 0;
+    animation: hanim;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    transform: translate(-50%, -50%);
+  }
+
+  @keyframes hanim {
+    from {
+      top: 0;
+      left: 50%;
+    }
+    to {
+      top: 40%;
+      left: 50%;
+    }
+  }
+
+  .carousel-item p {
+    position: absolute;
+    font-size: 16px;
+    top: 0;
+    left: 0;
+    animation-name: panim;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    transform: translate(-50%, -50%);
+  }
+
+  @keyframes panim {
+    from {
+      top: 50%;
+      left: 0;
+    }
+    to {
+      top: 50%;
+      left: 50%;
+    }
+  }
+
+  .carousel-item .btn {
+    top: 60%;
+    left: 50%;
+  }
+  
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  nav ul {
+    width: 40%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  nav ul {
+    width: 30%;
+  }
+}
